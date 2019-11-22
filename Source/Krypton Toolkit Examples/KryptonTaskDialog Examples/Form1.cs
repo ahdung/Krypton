@@ -5,7 +5,7 @@
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.5.0.0 	www.ComponentFactory.com
+//  Version 4.6.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -90,6 +90,25 @@ namespace KryptonTaskDialogExamples
             kryptonTaskDialog.FooterHyperlink = textBoxFooterHyperlink.Text;
             kryptonTaskDialog.FooterIcon = (MessageBoxIcon)Enum.Parse(typeof(MessageBoxIcon), comboBoxFooterIcon.Text);
             kryptonTaskDialog.ShowDialog(this);
+        }
+
+        private void buttonFill_Click(object sender, EventArgs e)
+        {
+            var s  = "The quick brown fox jumps over the lazy dog";
+            var e1 = new Random().Next(50, 400);
+            var sb = new StringBuilder().Append(s);
+            for (var i = 0; i < e1; ++i)
+            {
+                sb.AppendFormat("\r\n\r\n{0}", s);
+                if (i % 10 == 0)
+                {
+                    var e2 = new Random().Next(1, 10);
+                    for (var j=0; j < e2; ++j)
+                      sb.AppendFormat(". {0}", s);
+                    sb.Append("\r\n");
+                }
+            }
+            textBoxContent.Text = sb.ToString();
         }
     }
 }

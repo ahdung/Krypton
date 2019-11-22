@@ -5,7 +5,7 @@
 //  proprietary information of Component Factory Pty Ltd, PO Box 1504, 
 //  Glen Waverley, Vic 3150, Australia and are supplied subject to licence terms.
 // 
-//  Version 4.5.0.0 	www.ComponentFactory.com
+//  Version 4.6.0.0 	www.ComponentFactory.com
 // *****************************************************************************
 
 using System;
@@ -184,6 +184,12 @@ namespace WorkspaceCellLayout
             page.Controls.Add(rtb);
 
             return page;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Create a grid with one cell per page
+            kryptonWorkspace.ApplyGridPages(true, Orientation.Horizontal);
         }
     }
 }
